@@ -526,6 +526,22 @@ function extractDataFromResponse(responseBody, relatedId = undefined, startConta
                 pm.environment.set(`contact-denylist-entry:${data.attributes.type}:${data.attributes.data}:type`, data.attributes.type);
                 pm.environment.set(`contact-denylist-entry:${data.attributes.type}:${data.attributes.data}:data`, data.attributes.data);
                 break;
+            case "account-asset-totals":
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:id`, data.id);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:settled`, data.attributes.settled);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:contingent-hold`, data.attributes["contingent-hold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:non-contingent-hold`, data.attributes["non-contingent-hold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:pending-transfer`, data.attributes["pending-transfer"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:disbursable`, data.attributes.disbursable);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:settled-cold`, data.attributes["settled-cold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:pending-transfer-cold`, data.attributes["pending-transfer-cold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:non-contingent-hold-cold`, data.attributes["non-contingent-hold-cold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:disbursable-cold`, data.attributes["disbursable-cold"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:settled-hot`, data.attributes["settled-hot"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:pending-transfer-hot`, data.attributes["pending-transfer-hot"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:non-contingent-hold-hot`, data.attributes["non-contingent-hold-hot"]);
+                pm.environment.set(`account:asset-total:${pm.environment.get("asset:sandbox:ETH_TEST3")}:disbursable-hot`, data.attributes["disbursable-hot"]);
+                break;
             default:
                 console.warn(`unhandled response data type: ${data.type}`);
                 break;
