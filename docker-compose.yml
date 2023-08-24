@@ -1,0 +1,9 @@
+version: "1"
+
+services:
+    webservice:
+        build: ./
+        volumes:
+            - ./:/app
+        ports:
+            - 8083:80
